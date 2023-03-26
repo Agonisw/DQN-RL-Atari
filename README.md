@@ -4,9 +4,7 @@ The Atari game chose Pong environment, which originated in 1972 in the United St
 1. The training of reinforcement learning has no ready-made samples, but the intelligence collects the corresponding (state, action, reward) samples in the interaction with the environment for trial-and-error learning, learning in the process of playing the game, and game control is a sequential decision problem, MDP modeling can be a good solution to this problem.
 
 
-2. ![image-20230326211446406](/Users/weimaolin/Library/Application Support/typora-user-images/image-20230326211446406.png)
-
-   The game watch is an image of 210 by 160, which is the data graph of the game screen.
+2. The game watch is an image of 210 by 160, which is the data graph of the game screen.
 
 
 3. ALE was built on Stella, an open source Atari 2600 emulator. It allowed users to interact with the Atari 2600 by receiving joystick actions, sending screen/RAM messages, and emulating the platform. ALE provides a game-handling layer that turns each game into a standard reinforcement learning problem by marking cumulative scores and whether the game is over. By default, each observation contains a single game screen: frame: a 2D array of 7bit pixels, 160 pixels wide x 210 pixels high. The action_space contains up to 18 discrete actions, which are defined by the joystick controller. The game-handling layer also specifies the minimum set of actions that need to be played for a particular game. When running, the simulator produces 60 frames per second, with a top speed of 6,000 frames per second. The reward on each time-step is defined on a game basis and is usually specified by the difference in score/points between frames. One episode starts at the first frame after the reset command and ends when the game ends. The game-handling layer also provides the ability to terminate an episode after a predefined number of frames. Users can thus access dozens of games through a single common interface, and can easily add new games.
@@ -71,9 +69,7 @@ The Atari game chose Pong environment, which originated in 1972 in the United St
    Among them, the reward is designed by ourselves. Generally speaking, the reward must be positive when the score is scored, but it must be negative when the score is lost. How to design better depends on our own experience and debugging.
 
 
-   8. ![image-20230326212122317](/Users/weimaolin/Library/Application Support/typora-user-images/image-20230326212122317.png)
-
-   DQN uses the formula above to select updates
+   8. DQN uses the formula above to select updates
    Q Network optimization target = reward + gamma * maximum Q for the next state
    Change the network in the direction of maximum reward
    Calculate the Q values of all state-behavior pairs, and take the maximum Q value of state-behavior value to update the value function of each state, which I understand as the value of each state. In DQN, I think the corresponding one is to use the maximum Q value of the next state as a part of the target, and use the Q value of the state-behavior pair obtained by the estimated network to calculate loss with the target, so as to achieve the purpose of updating parameters. Updating parameters is equivalent to updating Q table, that is, updating Q value.
