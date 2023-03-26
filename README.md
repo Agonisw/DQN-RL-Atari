@@ -10,7 +10,7 @@ The Atari game chose Pong environment, which originated in 1972 in the United St
 3. ALE was built on Stella, an open source Atari 2600 emulator. It allowed users to interact with the Atari 2600 by receiving joystick actions, sending screen/RAM messages, and emulating the platform. ALE provides a game-handling layer that turns each game into a standard reinforcement learning problem by marking cumulative scores and whether the game is over. By default, each observation contains a single game screen: frame: a 2D array of 7bit pixels, 160 pixels wide x 210 pixels high. The action_space contains up to 18 discrete actions, which are defined by the joystick controller. The game-handling layer also specifies the minimum set of actions that need to be played for a particular game. When running, the simulator produces 60 frames per second, with a top speed of 6,000 frames per second. The reward on each time-step is defined on a game basis and is usually specified by the difference in score/points between frames. One episode starts at the first frame after the reset command and ends when the game ends. The game-handling layer also provides the ability to terminate an episode after a predefined number of frames. Users can thus access dozens of games through a single common interface, and can easily add new games.
 
 
-4. The action space is six discrete Spaces, and what this means is six decision variables, like up, down, left, right.![image-20230326211719448](/Users/weimaolin/Library/Application Support/typora-user-images/image-20230326211719448.png)
+4. The action space is six discrete Spaces, and what this means is six decision variables, like up, down, left, right.
 
 
 5. ```python
